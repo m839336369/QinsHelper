@@ -34,7 +34,7 @@ namespace Wox.Converters
             }
             if (!(val is ResultViewModel))
             {
-                return System.Windows.Data.Binding.DoNothing;
+                return Binding.DoNothing;
             }
 
             try

@@ -154,7 +154,6 @@ namespace Wox
             });
             Task.Run(() =>
             {
-
                 var t = new CancellationTokenSource().Token;
                 _mainVM.UpdateResultView(results, plugin, query, t);
             });

@@ -173,10 +173,9 @@ namespace Wox.Plugin.Program.Programs
 
         public static List<UWP> PackageFoldersFromRegistry()
         {
-
             var actiable = new HashSet<string>();
             string activableReg = @"Software\Classes\ActivatableClasses\Package";
-            var activableRegSubkey = Registry.CurrentUser.OpenSubKey(activableReg);
+            var activableRegSubkey = Registry.LocalMachine.OpenSubKey(activableReg);
             foreach (string name in activableRegSubkey.GetSubKeyNames())
             {
                 actiable.Add(name);
@@ -184,7 +183,7 @@ namespace Wox.Plugin.Program.Programs
 
             var packages = new List<UWP>();
             string packageReg = @"Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\Repository\Packages";
-            var packageRegSubkey = Registry.CurrentUser.OpenSubKey(packageReg);
+            var packageRegSubkey = Registry.LocalMachine.OpenSubKey(packageReg);
             foreach (var name in packageRegSubkey.GetSubKeyNames())
             {
                 var packageKey = packageRegSubkey.OpenSubKey(name);

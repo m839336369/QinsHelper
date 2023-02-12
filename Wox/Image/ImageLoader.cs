@@ -112,7 +112,7 @@ namespace Wox.Image
                 image.Freeze();
                 return image;
             }
-
+            
             bool normalImage = ImageExtensions.Any(e => path.EndsWith(e));
             if (!Path.IsPathRooted(path) && normalImage)
             {
